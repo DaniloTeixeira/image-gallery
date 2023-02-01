@@ -1,13 +1,9 @@
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
+.footer-container {
   width: 100vw;
   height: 40px;
 
   background: #f5f5f5;
+  padding: 10px 0;
 }
 
 .footer-content {
@@ -16,7 +12,12 @@ footer {
   align-items: center;
   height: 100%;
 
-  small {
+  p {
     font-weight: 500;
+    margin: 0;
+
+    a {
+      font-weight: 600;
+    }
   }
 }

@@ -2,11 +2,16 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
 
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 a {
   color: #fff;
-  margin: 0 1rem;
+  margin: 0 0.8rem;
+  font-size: 1.5rem;
+}
+
+span {
+  font-family: "Architects Daughter", cursive;
   font-size: 1.5rem;
 }

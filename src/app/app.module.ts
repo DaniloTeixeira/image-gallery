@@ -12,12 +12,14 @@ import { HeaderComponent } from './core/components/header';
 import { FooterComponent } from './core/components/footer';
 import { GalleryComponent } from './core/pages/gallery';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './core/components/loader';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     GalleryComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     MatToolbarModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

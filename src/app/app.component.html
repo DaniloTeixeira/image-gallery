@@ -1,5 +1,9 @@
 <app-header></app-header>
 
-<app-gallery [images]="images"></app-gallery>
+<app-gallery
+  [galleryImage]="images"
+  [showCount]="true"
+  [loading]="loading"
+></app-gallery>
 
-<app-footer></app-footer>
+<app-footer *ngIf="!loading"></app-footer>

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { delay, Subject, takeUntil } from 'rxjs';
 import { Image } from './core/models/Image';
 import { GalleryService } from './core/services';
 
@@ -10,6 +10,7 @@ import { GalleryService } from './core/services';
 })
 export class AppComponent implements OnInit, OnDestroy {
   images: Image[] = [];
+  loading = true;
 
   destroy$ = new Subject<void>();
 
@@ -27,9 +28,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private getAllImages(): void {
     this.galleryService
       .getImages()
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntil(this.destroy$), delay(500))
       .subscribe((images) => {
         this.images = images;
+        this.loading = false;
       });
   }
 }
