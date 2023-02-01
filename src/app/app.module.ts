@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header';
 import { FooterComponent } from './core/components/footer';
 import { GalleryComponent } from './core/pages/gallery';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { GalleryComponent } from './core/pages/gallery';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
