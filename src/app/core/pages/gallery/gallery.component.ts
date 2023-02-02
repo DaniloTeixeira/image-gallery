@@ -44,16 +44,12 @@ export class GalleryComponent {
    */
   currentIndex = 0;
 
-  constructor() {}
-
   /**
    * Retorna o comprimento do array galleryImage dinamicamente
    */
   get galleryImageLength(): number {
     return this.galleryImage.length;
   }
-
-  ngOnInit(): void {}
 
   /**
    * Seta variáveis ao selecionar uma imagem específica
