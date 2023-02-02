@@ -1,9 +1,11 @@
-<app-header></app-header>
+<div class="app-container">
+  <app-header></app-header>
 
-<app-gallery
-  [galleryImage]="galleryImage"
-  [showCounter]="true"
-  [loading]="loading"
-></app-gallery>
+  <app-gallery
+    [galleryImage]="galleryImage"
+    [showCounter]="true"
+    [loading]="loading"
+  ></app-gallery>
 
-<app-footer *ngIf="!loading"></app-footer>
+  <app-footer *ngIf="!loading"></app-footer>
+</div>
