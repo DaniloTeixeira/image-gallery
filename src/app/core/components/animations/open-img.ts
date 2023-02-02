@@ -1,5 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 
+/**
+ * Aplica animação para abrir a imagem que foi clicada
+ */
 export const openImg = trigger('openImg', [
   transition('void => visible', [
     style({ transform: 'scale(0.5)' }),
