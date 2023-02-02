@@ -9,23 +9,26 @@
     </div>
   </div>
 
-  <div *ngIf="previewImage" class="preview" @animation2>
+  <div *ngIf="previewImage" class="preview" @closeImg>
     <span *ngIf="showCounter" class="counter">
       {{ currentIndex + 1 }} de {{ galleryImageLength }}
     </span>
+
     <button class="close-btn" (click)="onClosePreview()">
       <i class="fas fa-times"></i>
     </button>
+
     <button class="btn-preview-carousel btn-prev" (click)="onPreviousImage()">
       <i class="fas fa-arrow-circle-left icon-preview-carousel icon-prev"></i>
     </button>
+
     <button class="btn-preview-carousel btn-next" (click)="onNextImage()">
       <i class="fas fa-arrow-circle-right icon-preview-carousel icon-next"></i>
     </button>
 
     <div
-      [@animation]="{ value: 'visible' }"
-      (@animation.done)="onAnimationEnd($event)"
+      [@openImg]="{ value: 'visible' }"
+      (@openImg.done)="onAnimationEnd($event)"
       class="preview-img"
     >
       <img

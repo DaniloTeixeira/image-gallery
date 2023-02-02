@@ -1,35 +1,14 @@
-import {
-  animate,
-  style,
-  transition,
-  trigger,
-  AnimationEvent,
-} from '@angular/animations';
+import { AnimationEvent } from '@angular/animations';
 import { Component, Input } from '@angular/core';
+import { closeImg } from '../../components/animations/close-img';
+import { openImg } from '../../components/animations/open-img';
 import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
-  animations: [
-    trigger('animation', [
-      transition('void => visible', [
-        style({ transform: 'scale(0.5)' }),
-        animate('150ms', style({ transform: 'scale(1)' })),
-      ]),
-      transition('visible => void', [
-        style({ transform: 'scale(1)' }),
-        animate('150ms', style({ transform: 'scale(0.5)' })),
-      ]),
-    ]),
-    trigger('animation2', [
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('50ms', style({ opacity: 0.8 })),
-      ]),
-    ]),
-  ],
+  animations: [openImg, closeImg],
 })
 export class GalleryComponent {
   /**
