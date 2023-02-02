@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div *ngIf="previewImage" class="preview" @closeImg>
+  <div *ngIf="previewImage" class="preview" @opacityImg>
     <span *ngIf="showCounter" class="counter">
       {{ currentIndex + 1 }} de {{ galleryImageLength }}
     </span>
@@ -27,8 +27,8 @@
     </button>
 
     <div
-      [@openImg]="{ value: 'visible' }"
-      (@openImg.done)="onAnimationEnd($event)"
+      [@scaleImg]="{ value: 'visible' }"
+      (@scaleImg.done)="onAnimationEnd($event)"
       class="preview-img"
     >
       <img
@@ -36,6 +36,10 @@
         [alt]="currentPreviewImage.imageAlt"
       />
     </div>
+    <small>
+      <i class="fa fa-info-circle me-2" aria-hidden="true"></i>
+      {{ currentPreviewImage.imageInfo }}
+    </small>
   </div>
 </div>
 

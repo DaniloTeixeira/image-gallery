@@ -1,14 +1,14 @@
 import { AnimationEvent } from '@angular/animations';
 import { Component, Input } from '@angular/core';
-import { closeImg } from '../../components/animations/close-img';
-import { openImg } from '../../components/animations/open-img';
+import { opacityImg } from '../../animations/close-opacity-img';
+import { scaleImg } from '../../animations/open-close-scale-img';
 import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
-  animations: [openImg, closeImg],
+  animations: [scaleImg, opacityImg],
 })
 export class GalleryComponent {
   /**
