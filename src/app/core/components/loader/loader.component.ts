@@ -6,5 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent {
+  /**
+   * Representa a mensagem a ser exibida no mat-spinner,
+   * valor recebido do componente pai
+   */
   @Input() loaderMessage?: string;
 }

@@ -77,6 +77,7 @@ export class GalleryComponent {
   ngOnInit(): void {}
 
   /**
+   * Seta variáveis ao selecionar uma imagem específica
    *
    * @param index índice da imagem selecionada
    */
@@ -86,18 +87,32 @@ export class GalleryComponent {
     this.currentPreviewImage = this.galleryImage[index];
   }
 
+  /**
+   * Seta a variável de visualização de imagem,
+   * caso a propriedade do evento seja void
+   *
+   * @param event Evento do tipo AnimationEvent
+   */
   onAnimationEnd(event: AnimationEvent) {
     if (event.toState === 'void') {
       this.previewImage = false;
     }
   }
 
+  /**
+   * Seta a variável para false e esconde a visualização da imagem
+   */
   onClosePreview() {
     this.previewImage = false;
   }
 
+  /**
+   * Incrementa 1 no índice da imagem e verifica se índice existe no array,
+   * caso não exista, seta o index como zero para voltar ao início do array
+   * caso exista seta a variável que representa a próxima imagem a ser exibida
+   */
   onNextImage(): void {
-    this.currentIndex = this.currentIndex + 1;
+    this.currentIndex++;
 
     if (this.currentIndex > this.galleryImage.length - 1) {
       this.currentIndex = 0;
@@ -106,8 +121,13 @@ export class GalleryComponent {
     this.currentPreviewImage = this.galleryImage[this.currentIndex];
   }
 
+  /**
+   * Decrementa 1 no índice da imagem e verifica se índice existe no array,
+   * caso não exista, seta o index como zero para voltar ao início do array
+   * caso exista seta a variável que representa a próxima imagem a ser exibida
+   */
   onPreviousImage(): void {
-    this.currentIndex = this.currentIndex - 1;
+    this.currentIndex--;
 
     if (this.currentIndex < 0) {
       this.currentIndex = this.galleryImage.length - 1;
