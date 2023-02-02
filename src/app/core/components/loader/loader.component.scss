@@ -23,14 +23,14 @@
 
 .loader {
   position: relative;
+
   &:before,
   &:after {
     content: "";
     width: inherit;
     height: inherit;
     border-radius: 50%;
-    // background-color: #3f51b5;
-    background-color: #ff4081;
+    background-color: #3f51b5;
     opacity: 0.6;
     position: absolute;
     top: -20px;
@@ -46,8 +46,9 @@
 
 .label {
   margin-top: 30px;
-  font-weight: 500;
-  color: #414143;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #757575;
 
   & ~ .label {
     margin-top: 0;

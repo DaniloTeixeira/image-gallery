@@ -9,15 +9,25 @@ import { GalleryService } from './core/services';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  images: Image[] = [];
+  /**
+   * Representa o array de fotos
+   */
+  galleryImage: Image[] = [];
+
+  /**
+   * Representa se a página está em carregamento
+   */
   loading = true;
 
+  /**
+   * Subject que é emitido quando componente é destruído
+   */
   destroy$ = new Subject<void>();
 
   constructor(private galleryService: GalleryService) {}
 
   ngOnInit(): void {
-    this.getAllImages();
+    this.getGalleryImage();
   }
 
   ngOnDestroy(): void {
@@ -25,12 +35,15 @@ export class AppComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  private getAllImages(): void {
+  /**
+   * Busca a galeria de imagens e seta o valor na variável
+   */
+  private getGalleryImage(): void {
     this.galleryService
       .getImages()
       .pipe(takeUntil(this.destroy$), delay(500))
       .subscribe((images) => {
-        this.images = images;
+        this.galleryImage = images;
         this.loading = false;
       });
   }

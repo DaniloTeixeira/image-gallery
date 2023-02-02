@@ -32,34 +32,63 @@ import { Image } from '../../models/Image';
   ],
 })
 export class GalleryComponent {
+  /**
+   * Galeria de imagens,
+   * valor recebido do componente pai
+   */
   @Input() galleryImage: Image[] = [];
-  @Input() showCount = false;
+
+  /**
+   * Define se contador das imagem deve ser exibido,
+   * valor recebido do componente pai
+   */
+  @Input() showCounter = false;
+
+  /**
+   * Define se a página está carregando,
+   * valor receido do componente pai
+   */
   @Input() loading!: boolean;
 
+  /**
+   * Define se uma imagem específica deve ser exibida
+   */
   previewImage = false;
-  showMask = false;
-  currentLightboxImage: Image = this.galleryImage[0];
+
+  /**
+   * Representa a imagem atual
+   */
+  currentPreviewImage!: Image;
+
+  /**
+   * Representa o índice da imagem atual
+   */
   currentIndex = 0;
-  controls = true;
 
   constructor() {}
 
+  /**
+   * Retorna o comprimento do array galleryImage dinamicamente
+   */
   get galleryImageLength(): number {
     return this.galleryImage.length;
   }
 
   ngOnInit(): void {}
 
+  /**
+   *
+   * @param index índice da imagem selecionada
+   */
   onPreviewImage(index: number): void {
-    this.showMask = true;
     this.previewImage = true;
     this.currentIndex = index;
-    this.currentLightboxImage = this.galleryImage[index];
+    this.currentPreviewImage = this.galleryImage[index];
   }
 
   onAnimationEnd(event: AnimationEvent) {
     if (event.toState === 'void') {
-      this.showMask = false;
+      this.previewImage = false;
     }
   }
 
@@ -67,19 +96,23 @@ export class GalleryComponent {
     this.previewImage = false;
   }
 
-  next(): void {
+  onNextImage(): void {
     this.currentIndex = this.currentIndex + 1;
+
     if (this.currentIndex > this.galleryImage.length - 1) {
       this.currentIndex = 0;
     }
-    this.currentLightboxImage = this.galleryImage[this.currentIndex];
+
+    this.currentPreviewImage = this.galleryImage[this.currentIndex];
   }
 
-  prev(): void {
+  onPreviousImage(): void {
     this.currentIndex = this.currentIndex - 1;
+
     if (this.currentIndex < 0) {
       this.currentIndex = this.galleryImage.length - 1;
     }
-    this.currentLightboxImage = this.galleryImage[this.currentIndex];
+
+    this.currentPreviewImage = this.galleryImage[this.currentIndex];
   }
 }
