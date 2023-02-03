@@ -1,8 +1,8 @@
-<div class="loader-container">
+<div class="loader-container" *ngIf="showLoader$ | async">
   <div class="loader-and-label-container">
     <div class="loader"></div>
     <div class="label">
-      {{ loaderMessage }}
+      {{ loaderText$ | async }}
     </div>
   </div>
 </div>

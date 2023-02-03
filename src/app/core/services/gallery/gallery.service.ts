@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Image } from '../models/Image';
-import endpoints from '../../../environments/endpoints';
+import { delay, Observable } from 'rxjs';
+import { Image } from '../../models/Image';
+import endpoints from '../../../../environments/endpoints';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,6 @@ export class GalleryService {
   getImages(): Observable<Image[]> {
     const url = endpoints.images;
 
-    return this.http.get<Image[]>(url);
+    return this.http.get<Image[]>(url).pipe(delay(1000));
   }
 }

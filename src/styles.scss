@@ -11,3 +11,17 @@ body {
   margin: 0;
   font-family: "Architects Daughter", cursive;
 }
+
+.snack-error {
+  color: #fff;
+  --mdc-snackbar-container-color: #a93226;
+}
+
+.snack-success {
+  color: #fff;
+  --mdc-snackbar-container-color: #198754;
+}
+
+span.mdc-button__label {
+  color: #fff;
+}
