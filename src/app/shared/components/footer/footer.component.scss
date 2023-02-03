@@ -18,6 +18,11 @@
     font-size: 1.1rem;
     margin: 0;
 
+    @media screen and (max-width: 570px) {
+      font-size: 0.8rem;
+      margin: unset;
+    }
+
     a {
       font-weight: 600;
     }
