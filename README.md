@@ -9,3 +9,4 @@
 3. Digitar o comando "npm run backend" (Subir o servidor do json-server)
 4. Rodar o comando ng s -o (Rodar o projeto para visualização)
 
+file:///C:/Users/USER/Desktop/Galeria%20de%20fotos.gif
