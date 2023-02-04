@@ -1,8 +1,9 @@
-import { AnimationEvent } from '@angular/animations';
 import { Component, Input } from '@angular/core';
+
+import { Image } from '../../models/Image';
+import { AnimationEvent } from '@angular/animations';
 import { opacityImg } from '../../animations/close-opacity-img';
 import { scaleImg } from '../../animations/open-close-scale-img';
-import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-gallery',
@@ -11,9 +12,9 @@ import { Image } from '../../models/Image';
   animations: [scaleImg, opacityImg],
 })
 export class GalleryComponent {
-  @Input() galleryImage: Image[] = [];
-  @Input() showCounter = false;
   @Input() loading!: boolean;
+  @Input() showCounter = false;
+  @Input() galleryImage: Image[] = [];
 
   currentIndex = 0;
   previewImage = false;

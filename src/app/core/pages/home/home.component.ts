@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { Subject, takeUntil } from 'rxjs';
 import { Image } from '../../models/Image';
-import { GalleryService } from '../../services/gallery';
 import { LoaderService } from '../../services/loader';
+import { GalleryService } from '../../services/gallery';
 import { SnackBarService } from '../../services/snackbar';
 
 @Component({
@@ -33,6 +34,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private getGalleryImage(): void {
+    const errorMsg = 'Ops... Erro ao carregar imagens.';
+
     this.loader.show('Carregando imagens...');
 
     this.galleryService
@@ -40,17 +43,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (images) => {
-          this.loading = false;
-          this.galleryImage = images;
-          this.snackBarService.showSnackBarSuccess(
-            'Imagens carregadas com sucesso!'
-          );
+          this.setSuccessRequestActions(images);
         },
-        error: () =>
-          this.snackBarService.showSnackBarError(
-            'Ops... Erro ao carregar imagens.'
-          ),
+        error: () => this.snackBarService.showSnackBarError(errorMsg),
       })
       .add(() => this.loader.hide());
+  }
+
+  private setSuccessRequestActions(images: Image[]): void {
+    this.loading = false;
+    this.galleryImage = images;
+    this.snackBarService.showSnackBarSuccess('Imagens carregadas com sucesso!');
   }
 }
