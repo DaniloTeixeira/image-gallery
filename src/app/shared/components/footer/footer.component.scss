@@ -13,18 +13,12 @@
   align-items: center;
   height: 100%;
 
-  p {
-    font-weight: 500;
-    font-size: 1.1rem;
+  small {
     margin: 0;
 
     @media screen and (max-width: 570px) {
       font-size: 0.8rem;
       margin: unset;
-    }
-
-    a {
-      font-weight: 600;
     }
   }
 }

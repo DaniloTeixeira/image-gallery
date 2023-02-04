@@ -10,11 +10,6 @@ import endpoints from '../../../../environments/endpoints';
 export class GalleryService {
   constructor(private http: HttpClient) {}
 
-  /**
-   * Busca as imagens salvas no json-server
-   *
-   * @returns a lista das imagens
-   */
   getImages(): Observable<Image[]> {
     const url = endpoints.images;
 

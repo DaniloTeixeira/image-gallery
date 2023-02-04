@@ -7,11 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class SnackBarService {
   constructor(private matSnackBar: MatSnackBar) {}
 
-  /**
-   * Exibe a notificação de erro na tela
-   *
-   * @param msg mensagem de erro a ser exibido na notificação
-   */
   showSnackBarError(msg: string): void {
     this.matSnackBar.open(`${msg}`, 'FECHAR', {
       duration: 2000,
@@ -21,11 +16,6 @@ export class SnackBarService {
     });
   }
 
-  /**
-   * Exibe a notificação de sucesso na tela
-   *
-   * @param msg de sucesso a ser exibido na notificação
-   */
   showSnackBarSuccess(msg: string): void {
     this.matSnackBar.open(`${msg}`, 'FECHAR', {
       duration: 2000,

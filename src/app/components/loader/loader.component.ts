@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoaderService } from 'src/app/core/services/loader';
 
 @Component({
@@ -7,14 +7,8 @@ import { LoaderService } from 'src/app/core/services/loader';
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent {
-  /**
-   *
-   */
   showLoader$ = this.loaderService.showLoader$;
 
-  /**
-   *
-   */
   loaderText$ = this.loaderService.loaderText$;
 
   constructor(private loaderService: LoaderService) {}

@@ -11,19 +11,10 @@ import { SnackBarService } from '../../services/snackbar';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  /**
-   * Representa o array de fotos
-   */
   galleryImage: Image[] = [];
 
-  /**
-   * Representa se a página está em carregamento
-   */
   loading = true;
 
-  /**
-   * Subject que é emitido quando componente é destruído
-   */
   destroy$ = new Subject<void>();
 
   constructor(
@@ -41,9 +32,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  /**
-   * Busca a galeria de imagens e seta o valor na variável
-   */
   private getGalleryImage(): void {
     this.loader.show('Carregando imagens...');
 

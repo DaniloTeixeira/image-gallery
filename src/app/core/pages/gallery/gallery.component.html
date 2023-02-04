@@ -1,17 +1,18 @@
 <div class="gallery-container" *ngIf="!loading">
   <div class="gallery-content">
     <div class="gallery-image" *ngFor="let image of galleryImage; index as i">
-      <img
-        [src]="image.imageSrc"
-        [alt]="image.imageAlt"
-        (click)="onPreviewImage(i)"
-      />
+      <figure>
+        <figcaption>{{ image.imageSubtitle }}</figcaption>
+        <img
+          [src]="image.imageSrc"
+          [alt]="image.imageAlt"
+          (click)="onPreviewImage(i)"
+        />
+      </figure>
     </div>
   </div>
 
   <div *ngIf="previewImage" class="preview" @opacityImg>
-    <p class="teste">TESTE</p>
-
     <span *ngIf="showCounter" class="counter">
       {{ currentIndex + 1 }} de {{ galleryImageLength }}
     </span>
@@ -36,6 +37,7 @@
       <img
         [src]="currentPreviewImage.imageSrc"
         [alt]="currentPreviewImage.imageAlt"
+        loading="lazy"
       />
     </div>
 
