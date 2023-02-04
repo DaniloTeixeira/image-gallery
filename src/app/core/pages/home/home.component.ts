@@ -14,7 +14,7 @@ import { SnackBarService } from '../../services/snackbar';
 export class HomeComponent implements OnInit, OnDestroy {
   galleryImage: Image[] = [];
 
-  loading = true;
+  loaded = false;
 
   destroy$ = new Subject<void>();
 
@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private getGalleryImage(): void {
     const errorMsg = 'Ops... Erro ao carregar imagens.';
+    const successMsg = 'Imagens carregadas com sucesso!';
 
     this.loader.show('Carregando imagens...');
 
@@ -43,16 +44,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (images) => {
-          this.setSuccessRequestActions(images);
+          this.galleryImage = images;
+          this.snackBarService.showSnackBarSuccess(successMsg);
         },
         error: () => this.snackBarService.showSnackBarError(errorMsg),
       })
-      .add(() => this.loader.hide());
-  }
-
-  private setSuccessRequestActions(images: Image[]): void {
-    this.loading = false;
-    this.galleryImage = images;
-    this.snackBarService.showSnackBarSuccess('Imagens carregadas com sucesso!');
+      .add(() => {
+        this.loader.hide();
+        this.loaded = true;
+      });
   }
 }

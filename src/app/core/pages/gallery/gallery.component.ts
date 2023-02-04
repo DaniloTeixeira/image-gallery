@@ -12,7 +12,6 @@ import { scaleImg } from '../../animations/open-close-scale-img';
   animations: [scaleImg, opacityImg],
 })
 export class GalleryComponent {
-  @Input() loading!: boolean;
   @Input() showCounter = false;
   @Input() galleryImage: Image[] = [];
 

@@ -13,6 +13,6 @@ export class GalleryService {
   getImages(): Observable<Image[]> {
     const url = endpoints.images;
 
-    return this.http.get<Image[]>(url).pipe(delay(1000));
+    return this.http.get<Image[]>(url).pipe(delay(500));
   }
 }
