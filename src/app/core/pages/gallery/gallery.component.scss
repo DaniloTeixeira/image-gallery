@@ -78,7 +78,7 @@
       font-family: "Roboto", sans-serif;
 
       @media screen and (max-width: 500px) {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -142,14 +142,16 @@
     font-size: 2rem;
   }
 
+  .preview-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .preview-img img {
     width: 90%;
     margin-bottom: 50px;
     border-radius: 0.5rem;
-
-    @media screen and (max-width: 420px) {
-      width: 86%;
-    }
   }
 }
 
